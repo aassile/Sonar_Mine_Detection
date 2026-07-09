@@ -1,0 +1,8 @@
+# Runtime dependencies for the Streamlit demo (app/streamlit_app.py).
+# Install the package itself (`pip install .`) alongside these, or use
+# `pip install -e ".[app]"`.
+streamlit>=1.31
+plotly>=5.18
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3

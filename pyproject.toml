@@ -17,6 +17,11 @@ dependencies = [
     "matplotlib>=3.7",
 ]
 
+[project.optional-dependencies]
+app = [
+    "streamlit>=1.31",
+]
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
