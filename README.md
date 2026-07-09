@@ -45,6 +45,7 @@ Sonar_Mine_Detection/
 │   ├── README.md              # schema + provenance
 │   └── sonar.csv              # 208-row labeled dataset (committed)
 ├── docs/
+│   ├── project-report.md      # full case-study report (EDA → deployment)
 │   └── why-this-matters.md    # real-world context & applications
 ├── notebooks/
 │   └── sonar_analysis.ipynb   # reproducible end-to-end narrative
@@ -154,4 +155,7 @@ Released under the [MIT License](LICENSE).
 Dataset: Connectionist Bench (Sonar, Mines vs. Rocks), UCI Machine Learning Repository —
 https://doi.org/10.24432/C5J619 (R. Paul Gorman & Terrence J. Sejnowski).
 
-See [`docs/why-this-matters.md`](docs/why-this-matters.md) for extended real-world context.
+See [`docs/project-report.md`](docs/project-report.md) for the full case-study report
+(EDA, model comparison, tuning, interpretability, clustering, and the operational
+deployment framework) and [`docs/why-this-matters.md`](docs/why-this-matters.md) for
+extended real-world context.
