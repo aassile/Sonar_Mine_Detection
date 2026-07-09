@@ -4,6 +4,7 @@
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue)](https://www.python.org/)
 [![Ruff](https://img.shields.io/badge/lint-ruff-261230)](https://github.com/astral-sh/ruff)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Streamlit App](https://img.shields.io/badge/Live_App-Streamlit-red?logo=streamlit)](https://share.streamlit.io/)
 
 ## Objective
 
@@ -41,10 +42,7 @@ Sonar_Mine_Detection/
 ├── .gitignore
 ├── requirements.txt
 ├── pyproject.toml
-├── app/
-│   ├── README.md              # demo usage + deployment notes
-│   ├── streamlit_app.py       # interactive Streamlit demo
-│   └── requirements.txt       # demo runtime dependencies
+├── app.py                     # interactive Streamlit demo
 ├── data/
 │   ├── README.md              # schema + provenance
 │   └── sonar.csv              # 208-row labeled dataset (committed)
@@ -97,19 +95,22 @@ discriminative frequency bands are `freq_37`, `freq_45`, `freq_27`, `freq_12`, a
 
 ## Live Demo
 
-An interactive [Streamlit](https://streamlit.io/) app wraps the tuned model — generate
-synthetic mine/rock-like signals or hand-tune all 60 frequency bands, then inspect the
-prediction, a confidence gauge, the signal energy profile against class means, and a
-per-band contribution breakdown.
+An interactive [Streamlit](https://streamlit.io/) app (`app.py`) wraps the tuned model —
+generate synthetic mine/rock-like signals or hand-tune all 60 frequency bands, then
+inspect the prediction, a confidence gauge, the signal energy profile against class
+means, and a per-band contribution breakdown.
 
 ```bash
-pip install -e ".[app]"
-streamlit run app/streamlit_app.py
+pip install -r requirements.txt
+streamlit run app.py
 ```
 
 The app trains the model on first load (cached) from `data/sonar.csv` — no external
-services required. See [`app/README.md`](app/README.md) for deployment notes
-(Streamlit Community Cloud).
+services or pre-trained artifacts required.
+
+**Deploy on [Streamlit Community Cloud](https://share.streamlit.io/):** point it at this
+repo, branch `master`, main file `app.py`. Dependencies install from `requirements.txt`
+automatically.
 
 > ⚠️ The held-out test set is only 42 samples, so cross-validation metrics are the more
 > reliable estimate of generalization. In an operational setting this model would act as a

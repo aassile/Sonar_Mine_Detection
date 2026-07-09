@@ -7,22 +7,29 @@ signal energy profile, and per-band contribution breakdown.
 
 Run locally with:
 
-    pip install -e ".[app]"      # or: pip install -r app/requirements.txt
-    streamlit run app/streamlit_app.py
+    pip install -r requirements.txt
+    streamlit run app.py
 """
 
 from __future__ import annotations
 
+import sys
 from pathlib import Path
 
 import numpy as np
 import plotly.graph_objects as go
 import streamlit as st
 
-from sonar_detection import FEATURE_COLS, load_sonar
-from sonar_detection.evaluation import permutation_importance_auc
-from sonar_detection.models import build_extra_trees
-from sonar_detection.preprocessing import (
+# Make the src/ package importable when running without an editable install
+# (e.g. on Streamlit Community Cloud, which only installs requirements.txt).
+_SRC = Path(__file__).resolve().parent / "src"
+if _SRC.exists() and str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+
+from sonar_detection import FEATURE_COLS, load_sonar  # noqa: E402
+from sonar_detection.evaluation import permutation_importance_auc  # noqa: E402
+from sonar_detection.models import build_extra_trees  # noqa: E402
+from sonar_detection.preprocessing import (  # noqa: E402
     encode_target,
     scale_features,
     split_features_target,

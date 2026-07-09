@@ -9,3 +9,4 @@ nbclient>=0.8
 ipykernel>=6.0
 kaleido>=0.2.1
 pytest>=7.4
+streamlit>=1.31
