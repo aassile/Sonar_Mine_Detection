@@ -4,7 +4,7 @@
 [![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue)](https://www.python.org/)
 [![Ruff](https://img.shields.io/badge/lint-ruff-261230)](https://github.com/astral-sh/ruff)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Streamlit App](https://img.shields.io/badge/Live_App-Streamlit-red?logo=streamlit)](https://share.streamlit.io/)
+[![Streamlit App](https://img.shields.io/badge/Live_App-Streamlit-red?logo=streamlit)](https://sonar-mine-detection-andrew-assile.streamlit.app/)
 
 ## Objective
 
@@ -95,6 +95,8 @@ discriminative frequency bands are `freq_37`, `freq_45`, `freq_27`, `freq_12`, a
 
 ## Live Demo
 
+**[Try the app →](https://sonar-mine-detection-andrew-assile.streamlit.app/)**
+
 An interactive [Streamlit](https://streamlit.io/) app (`app.py`) wraps the tuned model —
 generate synthetic mine/rock-like signals or hand-tune all 60 frequency bands, then
 inspect the prediction, a confidence gauge, the signal energy profile against class
@@ -108,9 +110,8 @@ streamlit run app.py
 The app trains the model on first load (cached) from `data/sonar.csv` — no external
 services or pre-trained artifacts required.
 
-**Deploy on [Streamlit Community Cloud](https://share.streamlit.io/):** point it at this
-repo, branch `master`, main file `app.py`. Dependencies install from `requirements.txt`
-automatically.
+Deployed on [Streamlit Community Cloud](https://share.streamlit.io/) from this repo
+(branch `master`, main file `app.py`); dependencies install from `requirements.txt`.
 
 > ⚠️ The held-out test set is only 42 samples, so cross-validation metrics are the more
 > reliable estimate of generalization. In an operational setting this model would act as a
